@@ -13,4 +13,9 @@ export default createGlobalStyle`
     font-family: 'starwars';
     src: url(${StarWars}) format('woff');
   }
+  
+  button,
+  input{
+    outline: 0;
+  }
 `;

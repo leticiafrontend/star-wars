@@ -1,13 +1,12 @@
 import React from 'react';
+import { SearchForm } from './components/SearchForm';
 import GlobalStyle from './styles/global';
 
 export const App = () => {
   return (
     <>
       <GlobalStyle />
-      <div className="App">
-        <h2 style={{ fontFamily: 'starwars' }}>star wars</h2>
-      </div>
+      <SearchForm />
     </>
   );
 };
