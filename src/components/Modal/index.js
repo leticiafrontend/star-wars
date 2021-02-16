@@ -9,28 +9,28 @@ import {
   Button,
 } from './style';
 
-export const Modal = () => {
+export const Modal = (props) => {
   return (
-    <ModalContainer>
+    <ModalContainer id={`modal-${props.idModal}`}>
       <ModalContent>
-        <Name>lucky skywalker</Name>
+        <Name>{props.name}</Name>
         <Infos>
           <InfoColumn>
-            <Info>altura</Info>
-            <Info>nmome</Info>
+            <Info>Gênero: {props.gender}</Info>
+            <Info>Altura: {props.height}</Info>
+            <Info>Peso: {props.mass}</Info>
+            <Info>Ano de Nascimento: {props.birthYear}</Info>
           </InfoColumn>
           <InfoColumn>
-            <Info>genero</Info>
-            <Info>tamanho</Info>
+            <Info>Cor do Cabelo: {props.hairColor}</Info>
+            <Info>Cor da Pele: {props.skinColor}</Info>
+            <Info>Cor dos Olhos: {props.eyeColor}</Info>
           </InfoColumn>
         </Infos>
         <Name>filmes</Name>
-        <Info>nmome</Info>
-        <Info>tamanho</Info>
         <Name>veículos</Name>
-        <Info>nmome</Info>
-        <Info>tamanho</Info>
-        <Button>Fechar</Button>
+        <Info>{props.vehicle}</Info>
+        <Button onClick={props.close}>Fechar</Button>
       </ModalContent>
     </ModalContainer>
   );

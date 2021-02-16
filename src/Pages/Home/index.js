@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Modal } from '../../components/Modal';
 import { Spinner } from '../../components/Spinner';
 import { Card } from '../../components/Card';
 import { SearchForm } from '../../components/SearchForm';
@@ -34,6 +35,16 @@ export const Home = () => {
     })();
   };
 
+  const closeModal = ({ target }) => {
+    target.parentNode.parentNode.style.display = 'none';
+  };
+
+  const openModal = ({ target }) => {
+    const { id } = target;
+    const modal = document.querySelector(`#modal-${id}`);
+    modal.style.display = 'flex';
+  };
+
   return (
     <PageContainer>
       <GlobalStyle />
@@ -48,7 +59,29 @@ export const Home = () => {
         <CardsContainer>
           {resultApi
             ? resultApi.map((item, index) => (
-                <Card name={item.name} key={index} />
+                <>
+                  <Card
+                    name={item.name}
+                    key={index}
+                    idCard={index}
+                    open={openModal}
+                  />
+                  <Modal
+                    key={index}
+                    idModal={index}
+                    name={item.name}
+                    gender={item.gender}
+                    height={item.height}
+                    mass={item.mass}
+                    birthYear={item.birth_year}
+                    hairColor={item.hair_color}
+                    skinColor={item.skin_color}
+                    eyeColor={item.eye_color}
+                    movies={item.films}
+                    vehicle={item.vehicle}
+                    close={closeModal}
+                  />
+                </>
               ))
             : ''}
           {erro ? (
