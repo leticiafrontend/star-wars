@@ -9,6 +9,7 @@ export const CardContainer = styled.div`
   border: 2px solid #fff;
   color: #fff;
   text-align: center;
+  min-width: 300px;
   padding: 40px;
   margin: 40px;
   &:hover {

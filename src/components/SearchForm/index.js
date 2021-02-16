@@ -1,13 +1,25 @@
 import React from 'react';
-import { InputSearch } from '../InputSearch';
-import { SearchContainer, Subtitle, Title } from './style';
+import searchIcon from '../../images/search.svg';
+import {
+  SearchContainer,
+  Subtitle,
+  Title,
+  Container,
+  Input,
+  Button,
+} from './style';
 
-export const SearchForm = () => {
+export const SearchForm = (props) => {
   return (
     <SearchContainer>
       <Title>starwars</Title>
       <Subtitle>personagens</Subtitle>
-      <InputSearch />
+      <Container>
+        <Input type="text" value={props.search} onChange={props.setsearch} />
+        <Button onClick={props.searchapi}>
+          <img src={searchIcon} alt="search" width="20" />
+        </Button>
+      </Container>
     </SearchContainer>
   );
 };

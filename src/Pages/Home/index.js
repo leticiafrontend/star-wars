@@ -1,17 +1,67 @@
-import React from 'react';
-import { Cards } from '../../components/Cards';
+import React, { useState } from 'react';
+import { Spinner } from '../../components/Spinner';
+import { Card } from '../../components/Card';
 import { SearchForm } from '../../components/SearchForm';
 import GlobalStyle from '../../styles/global';
-import { PageContainer } from './style';
-import { Modal } from '../../components/Modal';
+import { PageContainer, CardsContainer } from './style';
 
 export const Home = () => {
+  const urlApi = 'https://swapi.dev/api/people/?search=';
+  const [search, setSearch] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [resultApi, setResultApi] = useState('');
+  const [erro, setErro] = useState(false);
+
+  const inputSearch = ({ target }) => {
+    setSearch(target.value);
+  };
+
+  const searchApi = () => {
+    setLoading(true);
+    const resultSearch = urlApi + search;
+    const result = resultSearch.replaceAll(' ', '+');
+
+    (async () => {
+      const response = await fetch(result);
+      const { results } = await response.json();
+      if (results.length === 0) {
+        setErro(true);
+      } else {
+        setErro(false);
+      }
+      setResultApi(results);
+      setLoading(false);
+    })();
+  };
+
   return (
     <PageContainer>
       <GlobalStyle />
-      <SearchForm />
-      <Cards />
-      <Modal />
+      <SearchForm
+        search={search}
+        setsearch={inputSearch}
+        searchapi={searchApi}
+      />
+      {loading ? (
+        <Spinner />
+      ) : (
+        <CardsContainer>
+          {resultApi
+            ? resultApi.map((item, index) => (
+                <Card name={item.name} key={index} />
+              ))
+            : ''}
+          {erro ? (
+            <h2
+              style={{ color: '#fff', margin: '30px 0', textAlign: 'center' }}
+            >
+              Nenhum personagem encontrado.
+            </h2>
+          ) : (
+            ''
+          )}
+        </CardsContainer>
+      )}
     </PageContainer>
   );
 };

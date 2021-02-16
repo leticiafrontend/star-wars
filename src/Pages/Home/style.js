@@ -6,3 +6,9 @@ export const PageContainer = styled.div`
   padding: 0 30px;
   background-image: url(${background});
 `;
+
+export const CardsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
