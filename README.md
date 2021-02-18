@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-  <img src="src/images/starwars.png" alt="Logo">
+  <img src="src/images/starwars.PNG" alt="Logo">
   <h3 align="center">Star Wars | Personagens</h3>
 
   <p align="center">
