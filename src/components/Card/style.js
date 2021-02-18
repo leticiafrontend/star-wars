@@ -8,8 +8,8 @@ export const CardContainer = styled.div`
   background: rgba(0, 0, 0, 0);
   border: 2px solid #fff;
   color: #fff;
-  text-align: center;
-  min-width: 300px;
+  text-align: initial;
+  flex-basis: 300px;
   padding: 40px;
   margin: 40px;
   &:hover {
@@ -20,20 +20,11 @@ export const CardContainer = styled.div`
   }
 `;
 
-export const Button = styled.button`
-  border-radius: 4px;
-  box-shadow: 0 0 16px 0px #0000d2;
-  background: #cccccc00;
-  border: 2px solid #fff;
-  padding: 0.6rem 1rem;
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-  margin-left: 0;
-  &:hover {
-    box-shadow: 0 0 20px 0px #0000d2;
-  }
+export const Title = styled.h2`
+  font-family: starwars;
+  text-align: center;
+  text-transform: lowercase;
+  font-size: 25pxpx;
+  padding: 0 0 10px 0;
+  color: #fbe000;
 `;

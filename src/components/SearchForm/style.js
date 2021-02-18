@@ -13,6 +13,9 @@ export const Title = styled.h1`
   text-align: center;
   padding: 3px;
   color: #fbe000;
+  @media (max-width: 610px) {
+    font-size: 3rem;
+  }
 `;
 
 export const Subtitle = styled.h4`
@@ -27,7 +30,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 20px;
 `;
 
 export const Input = styled.input`
